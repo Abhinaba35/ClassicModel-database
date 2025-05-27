@@ -106,7 +106,7 @@ FROM employees e
 LEFT JOIN employees m ON e.reportsTo = m.employeeNumber;
 ```
 
-More queries can be found in `queries/useful_queries.sql`.
+
 
 ---
 
@@ -118,5 +118,5 @@ This is a sample educational database, originally inspired by MySQL classicmodel
 
 ## 🙌 Author
 
-Created by [Your Name]  
+Created by Abhinaba Das  
 For educational and demonstration purposes.
