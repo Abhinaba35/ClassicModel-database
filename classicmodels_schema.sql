@@ -20,7 +20,7 @@ CREATE TABLE IF NOT EXISTS `ClassicModels`.`Offices` (
   `postalCode` VARCHAR(15) NOT NULL,
   `territory` VARCHAR(10) NOT NULL,
   `officeLocation` POINT NOT NULL,
-  PRIMARY KEY (`officeCode`)) ENGINE = InnoDB DEFAULT CHARACTER SET = utf8mb3;
+  PRIMARY KEY (`officeCode`)) ;
 
 -- -----------------------------------------------------
 -- Table `ClassicModels`.`Employees`
@@ -46,7 +46,7 @@ CREATE TABLE IF NOT EXISTS `ClassicModels`.`Employees` (
     FOREIGN KEY (`officeCode`)
     REFERENCES `ClassicModels`.`Offices` (`officeCode`)
     ON DELETE NO ACTION
-    ON UPDATE NO ACTION) ENGINE = InnoDB DEFAULT CHARACTER SET = utf8mb3;
+    ON UPDATE NO ACTION) ;
 
 -- -----------------------------------------------------
 -- Table `ClassicModels`.`Customers`
@@ -72,7 +72,7 @@ CREATE TABLE IF NOT EXISTS `ClassicModels`.`Customers` (
     FOREIGN KEY (`salesRepEmployeeNumber`)
     REFERENCES `ClassicModels`.`Employees` (`employeeNumber`)
     ON DELETE NO ACTION
-    ON UPDATE NO ACTION) ENGINE = InnoDB DEFAULT CHARACTER SET = utf8mb3;
+    ON UPDATE NO ACTION) ;
 
 -- -----------------------------------------------------
 -- Table `ClassicModels`.`ProductLines`
@@ -82,7 +82,7 @@ CREATE TABLE IF NOT EXISTS `ClassicModels`.`ProductLines` (
   `textDescription` VARCHAR(4000) NULL DEFAULT NULL,
   `htmlDescription` MEDIUMTEXT NULL DEFAULT NULL,
   `image` MEDIUMBLOB NULL DEFAULT NULL,
-  PRIMARY KEY (`productLine`)) ENGINE = InnoDB DEFAULT CHARACTER SET = utf8mb3;
+  PRIMARY KEY (`productLine`)) ;
 
 -- -----------------------------------------------------
 -- Table `ClassicModels`.`Products`
@@ -103,7 +103,7 @@ CREATE TABLE IF NOT EXISTS `ClassicModels`.`Products` (
     FOREIGN KEY (`productLine`)
     REFERENCES `ClassicModels`.`ProductLines` (`productLine`)
     ON DELETE NO ACTION
-    ON UPDATE NO ACTION) ENGINE = InnoDB DEFAULT CHARACTER SET = utf8mb3;
+    ON UPDATE NO ACTION) ;
 
 -- -----------------------------------------------------
 -- Table `ClassicModels`.`Orders`
@@ -122,7 +122,7 @@ CREATE TABLE IF NOT EXISTS `ClassicModels`.`Orders` (
     FOREIGN KEY (`customerNumber`)
     REFERENCES `ClassicModels`.`Customers` (`customerNumber`)
     ON DELETE NO ACTION
-    ON UPDATE NO ACTION) ENGINE = InnoDB DEFAULT CHARACTER SET = utf8mb3;
+    ON UPDATE NO ACTION) ;
 
 -- -----------------------------------------------------
 -- Table `ClassicModels`.`OrderDetails`
@@ -145,8 +145,7 @@ CREATE TABLE IF NOT EXISTS `ClassicModels`.`OrderDetails` (
     FOREIGN KEY (`orderNumber`)
     REFERENCES `ClassicModels`.`Orders` (`orderNumber`)
     ON DELETE NO ACTION
-    ON UPDATE NO ACTION) ENGINE = InnoDB DEFAULT CHARACTER SET = utf8mb3;
-
+    ON UPDATE NO ACTION) ;
 -- -----------------------------------------------------
 -- Table `ClassicModels`.`Payments`
 -- -----------------------------------------------------
@@ -161,4 +160,4 @@ CREATE TABLE IF NOT EXISTS `ClassicModels`.`Payments` (
     FOREIGN KEY (`customerNumber`)
     REFERENCES `ClassicModels`.`Customers` (`customerNumber`)
     ON DELETE NO ACTION
-    ON UPDATE NO ACTION) ENGINE = InnoDB DEFAULT CHARACTER SET = utf8mb3;
+    ON UPDATE NO ACTION) ;
